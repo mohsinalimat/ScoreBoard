@@ -13,13 +13,14 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
 
     @IBOutlet weak var playerSearchBar: UISearchBar!
     @IBOutlet weak var playerTableView: UITableView!
+    @IBOutlet weak var totalCount: UILabel!
     
     var playerList : NSMutableArray?                // BASE ARRAY
     var filteredList : NSMutableArray?              // FILTER ARRAY
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         self.playerSearchBar.delegate = self
@@ -27,11 +28,51 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
         self.playerTableView.dataSource = self
         
         self.filteredList = NSMutableArray(array : self.playerList!)
+        self.totalCount.text = NSString(format: "Total Player %lu", (self.playerList?.count)!) as String
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    //====================================================================================================================================
+    // BUTTON ACTIONS
+    //====================================================================================================================================
+    
+    @IBAction func sortAction(_ sender: Any) {
+        
+        let alertController = UIAlertController(title: "Sort Types", message: nil, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel , handler:nil)
+        
+        let totalRun = UIAlertAction(title: "Runs", style: .default) { action in
+            self.sortArray(param: "total_score")
+        }
+        
+        let totalMatches = UIAlertAction(title: "Matches", style: .default) { action in
+            self.sortArray(param: "matches_played")
+        }
+        
+        alertController.addAction(totalRun)
+        alertController.addAction(totalMatches)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true , completion:nil)
+    }
+
+    
+    @IBAction func favouriteButton(_ sender: Any) {
+    
+        
+    }
+    
+    func sortArray(param: NSString?) {
+        
+        let descriptor = NSSortDescriptor(key: param as String?, ascending: false)
+        self.filteredList = NSMutableArray(array : (self.playerList?.sortedArray(using: [descriptor]))!)
+        self.playerTableView.reloadData()
     }
 
     //====================================================================================================================================
@@ -104,7 +145,7 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
         
         DispatchQueue.main.async {
          
-            let predicate = NSPredicate(format: "name contains[cd] %@", searchText)
+            let predicate = NSPredicate(format: "name contains[cd] %@ OR country contains[cd] %@", searchText, searchText)
             self.filteredList?.removeAllObjects()
             let searcArray = self.playerList?.filtered(using: predicate)
             self.filteredList?.addObjects(from: searcArray!)
