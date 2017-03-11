@@ -136,6 +136,8 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
             image = UIImage(named: "favourite_set.png")
         }
         
+        SBDBManager().updatEntity(id: player.id, flag: player.favourite!)
+        
         cell.favouriteButton.setImage(image, for: .normal)
     }
     

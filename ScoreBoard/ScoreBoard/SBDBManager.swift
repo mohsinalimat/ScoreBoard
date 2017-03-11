@@ -113,4 +113,10 @@ class SBDBManager: NSObject {
         return resultArray
     }
     
+    public func fetchEntities(completion : @escaping (_ arrayList: NSMutableArray) -> Void) {
+        
+        let list : NSMutableArray = self.fetchFavourite()
+        completion(list)
+    }
+    
 }

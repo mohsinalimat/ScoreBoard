@@ -28,8 +28,13 @@ class SBFavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        self.playerList = 
-        self.filteredList = NSMutableArray(array : self.playerList!)
+        
+        SBDBManager().fetchEntities { (arrayList) in
+            
+            self.playerList = NSMutableArray(array:arrayList)
+            self.filteredList = NSMutableArray(array : self.playerList!)
+            self.playerTableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
