@@ -20,6 +20,22 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        SBNetworkManager().getPlayers(sortType: "") { (arrayList, error) in
+            
+            DispatchQueue.main.async {
+             
+                let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+                let navigationVC = storyBoard.instantiateViewController(withIdentifier: "SBPlayerNavigationVC") as! UINavigationController
+                let viewArray = navigationVC.viewControllers as NSArray
+                let playerListVC = viewArray.object(at: 0) as! SBPlayerListVC
+                playerListVC.playerList = NSMutableArray(array: arrayList!)
+                self.present(navigationVC, animated: true, completion: nil)
+            }
+        }
+    }
 
 }
 

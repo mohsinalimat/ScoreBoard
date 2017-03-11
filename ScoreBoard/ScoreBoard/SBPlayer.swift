@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum FAVOURITE_FLAG : Int {
+
+    case DEFAULT = 0
+    case FAVOURITE = 1
+}
+
 class SBPlayer: NSObject {
 
     public var country : NSString?
@@ -17,6 +23,7 @@ class SBPlayer: NSObject {
     public var matches_played : NSNumber?
     public var name : NSString?
     public var total_score : NSNumber?
+    public var favourite : NSNumber?
     
     override init() {
         
@@ -44,6 +51,7 @@ class SBPlayer: NSObject {
         self.matches_played = dictionary["matches_played"] as? NSNumber
         self.name = dictionary["name"] as? NSString
         self.total_score = dictionary["total_score"] as? NSNumber
+        self.favourite = NSNumber(value: FAVOURITE_FLAG.DEFAULT.rawValue)
     }
     
 }

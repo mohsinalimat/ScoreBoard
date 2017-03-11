@@ -19,6 +19,9 @@
 		467A03C81E73D5C00040CE8B /* SBHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03C71E73D5C00040CE8B /* SBHTTPRequest.swift */; };
 		467A03CA1E73D5CE0040CE8B /* SBHTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03C91E73D5CE0040CE8B /* SBHTTPResponse.swift */; };
 		467A03CD1E73DC2A0040CE8B /* SBPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03CC1E73DC2A0040CE8B /* SBPlayer.swift */; };
+		467A03D11E73E7810040CE8B /* SBTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03D01E73E7810040CE8B /* SBTableCell.swift */; };
+		467A03D31E73E7EC0040CE8B /* SBPlayerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03D21E73E7EC0040CE8B /* SBPlayerListVC.swift */; };
+		467A03D51E73E8130040CE8B /* SBPlayerDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03D41E73E8130040CE8B /* SBPlayerDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		467A03C71E73D5C00040CE8B /* SBHTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBHTTPRequest.swift; sourceTree = "<group>"; };
 		467A03C91E73D5CE0040CE8B /* SBHTTPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBHTTPResponse.swift; sourceTree = "<group>"; };
 		467A03CC1E73DC2A0040CE8B /* SBPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBPlayer.swift; sourceTree = "<group>"; };
+		467A03D01E73E7810040CE8B /* SBTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBTableCell.swift; sourceTree = "<group>"; };
+		467A03D21E73E7EC0040CE8B /* SBPlayerListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBPlayerListVC.swift; sourceTree = "<group>"; };
+		467A03D41E73E8130040CE8B /* SBPlayerDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBPlayerDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,8 @@
 				467A039F1E73D5070040CE8B /* LaunchScreen.storyboard */,
 				467A03A21E73D5070040CE8B /* Info.plist */,
 				467A039A1E73D5070040CE8B /* ScoreBoard.xcdatamodeld */,
+				467A03CF1E73E74C0040CE8B /* SBViewControllers */,
+				467A03CE1E73E7320040CE8B /* SBTableCells */,
 				467A03CB1E73DC110040CE8B /* SBPlayer */,
 				467A03C41E73D56A0040CE8B /* SBNetwork */,
 			);
@@ -154,6 +162,23 @@
 				467A03CC1E73DC2A0040CE8B /* SBPlayer.swift */,
 			);
 			name = SBPlayer;
+			sourceTree = "<group>";
+		};
+		467A03CE1E73E7320040CE8B /* SBTableCells */ = {
+			isa = PBXGroup;
+			children = (
+				467A03D01E73E7810040CE8B /* SBTableCell.swift */,
+			);
+			name = SBTableCells;
+			sourceTree = "<group>";
+		};
+		467A03CF1E73E74C0040CE8B /* SBViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				467A03D21E73E7EC0040CE8B /* SBPlayerListVC.swift */,
+				467A03D41E73E8130040CE8B /* SBPlayerDetailVC.swift */,
+			);
+			name = SBViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,8 +316,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				467A03CD1E73DC2A0040CE8B /* SBPlayer.swift in Sources */,
+				467A03D11E73E7810040CE8B /* SBTableCell.swift in Sources */,
 				467A03961E73D5070040CE8B /* ViewController.swift in Sources */,
+				467A03D51E73E8130040CE8B /* SBPlayerDetailVC.swift in Sources */,
 				467A03CA1E73D5CE0040CE8B /* SBHTTPResponse.swift in Sources */,
+				467A03D31E73E7EC0040CE8B /* SBPlayerListVC.swift in Sources */,
 				467A039C1E73D5070040CE8B /* ScoreBoard.xcdatamodeld in Sources */,
 				467A03941E73D5070040CE8B /* AppDelegate.swift in Sources */,
 				467A03C81E73D5C00040CE8B /* SBHTTPRequest.swift in Sources */,
