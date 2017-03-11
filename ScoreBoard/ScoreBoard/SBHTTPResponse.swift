@@ -1,5 +1,5 @@
 //
-//  SBResponseManager.swift
+//  SBHTTPResponse.swift
 //  ScoreBoard
 //
 //  Created by Abhishek Thapliyal on 3/11/17.
