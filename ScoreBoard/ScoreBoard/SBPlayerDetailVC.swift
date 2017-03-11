@@ -44,6 +44,12 @@ class SBPlayerDetailVC: UIViewController {
     
     @IBAction func shareAction(_ sender: Any) {
         
+         DispatchQueue.main.async {
+            
+            let activityVC = UIActivityViewController(activityItems: [self.player?.name! as Any], applicationActivities: nil)
+            activityVC.excludedActivityTypes = [.assignToContact, .print, .postToTwitter, .postToWeibo]
+            self.present(activityVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction func linkAction(_ sender: Any) {
