@@ -81,7 +81,7 @@ class SBDBManager: NSObject {
         let context = dbPersistence.persistentContainer.viewContext as NSManagedObjectContext
         let entityDescription = NSEntityDescription.entity(forEntityName: "Favourite", in: context)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
-        let predicate = NSPredicate(format: "favourite contains[c] %@", NSNumber(value: true))
+        let predicate = NSPredicate(format: "favourite == %@", NSNumber(value: true))
         fetchRequest.entity = entityDescription
         fetchRequest.predicate = predicate
         
