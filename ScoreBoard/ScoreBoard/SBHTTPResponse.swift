@@ -28,7 +28,7 @@ class SBHTTPResponse: NSObject {
             else
             {
                 let httpResponse = response as! HTTPURLResponse
-                print("HTTP RESPONSE \(httpResponse.description) && CODE :: \(httpResponse.statusCode)")
+//                print("HTTP RESPONSE \(httpResponse.description) && CODE :: \(httpResponse.statusCode)")
                 if (httpResponse.statusCode == RESPONSE_CODE.SUCCESS.rawValue) {
                     
                     do {

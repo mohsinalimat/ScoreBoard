@@ -60,10 +60,15 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
     }
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let player = filteredList?.object(at: indexPath.row) as! SBPlayer
         print("SELECTED_PLAYER : \((player.name)!)")
+        
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let playerDetailVC = storyBoard.instantiateViewController(withIdentifier: "SBPlayerDetailVC") as! SBPlayerDetailVC
+        playerDetailVC.player = player
+        self.navigationController?.pushViewController(playerDetailVC, animated: true)
     }
-    
     
     //====================================================================================================================================
     // TABLE CELL DELEGATE

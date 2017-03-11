@@ -35,7 +35,9 @@ class SBNetworkManager: NSObject {
                  
                     let player = SBPlayer(dictionary: recordDict)
                     self.responseArray?.add(player)
-                    print("PLAYER : \((player.name)!)")
+//                    print("PLAYER : \((player.name)!)")
+//                    print("PLAYER RUN: \((player.total_score)!)")
+//                    print("PLAYER MATCHES: \((player.matches_played)!)")
                 }
             }
             completion(self.responseArray!, error)

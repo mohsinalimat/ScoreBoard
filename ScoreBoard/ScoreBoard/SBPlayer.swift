@@ -12,11 +12,11 @@ class SBPlayer: NSObject {
 
     public var country : NSString?
     public var playerdescription : NSString?
-    public var id : NSNumber?
+    public var id : NSString?
     public var image : NSString?
-    public var matches_played : NSNumber?
+    public var matches_played : NSString?
     public var name : NSString?
-    public var total_score : NSNumber?
+    public var total_score : NSString?
     public var favourite : Bool?
     
     override init() {
@@ -39,12 +39,12 @@ class SBPlayer: NSObject {
     public func parseDictionary(dictionary : [String:Any]) {
         
         self.country = dictionary["country"] as? NSString
-        self.id = dictionary["id"] as? NSNumber
+        self.id = dictionary["id"] as? NSString
         self.playerdescription = dictionary["description"] as? NSString
         self.image = dictionary["image"] as? NSString
-        self.matches_played = dictionary["matches_played"] as? NSNumber
+        self.matches_played = dictionary["matches_played"] as? NSString
         self.name = dictionary["name"] as? NSString
-        self.total_score = dictionary["total_score"] as? NSNumber
+        self.total_score = dictionary["total_score"] as? NSString
         self.favourite = false
     }
     

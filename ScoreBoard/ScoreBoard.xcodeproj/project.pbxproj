@@ -22,6 +22,7 @@
 		467A03D11E73E7810040CE8B /* SBTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03D01E73E7810040CE8B /* SBTableCell.swift */; };
 		467A03D31E73E7EC0040CE8B /* SBPlayerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03D21E73E7EC0040CE8B /* SBPlayerListVC.swift */; };
 		467A03D51E73E8130040CE8B /* SBPlayerDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03D41E73E8130040CE8B /* SBPlayerDetailVC.swift */; };
+		467A03D71E7408570040CE8B /* SBImageFullVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03D61E7408570040CE8B /* SBImageFullVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		467A03D01E73E7810040CE8B /* SBTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBTableCell.swift; sourceTree = "<group>"; };
 		467A03D21E73E7EC0040CE8B /* SBPlayerListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBPlayerListVC.swift; sourceTree = "<group>"; };
 		467A03D41E73E8130040CE8B /* SBPlayerDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBPlayerDetailVC.swift; sourceTree = "<group>"; };
+		467A03D61E7408570040CE8B /* SBImageFullVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBImageFullVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				467A03951E73D5070040CE8B /* ViewController.swift */,
 				467A03D21E73E7EC0040CE8B /* SBPlayerListVC.swift */,
 				467A03D41E73E8130040CE8B /* SBPlayerDetailVC.swift */,
+				467A03D61E7408570040CE8B /* SBImageFullVC.swift */,
 			);
 			name = SBViewControllers;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				467A03CA1E73D5CE0040CE8B /* SBHTTPResponse.swift in Sources */,
 				467A03D31E73E7EC0040CE8B /* SBPlayerListVC.swift in Sources */,
 				467A039C1E73D5070040CE8B /* ScoreBoard.xcdatamodeld in Sources */,
+				467A03D71E7408570040CE8B /* SBImageFullVC.swift in Sources */,
 				467A03941E73D5070040CE8B /* AppDelegate.swift in Sources */,
 				467A03C81E73D5C00040CE8B /* SBHTTPRequest.swift in Sources */,
 				467A03C61E73D59F0040CE8B /* SBNetworkManager.swift in Sources */,
@@ -571,6 +575,7 @@
 				467A03BD1E73D5070040CE8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		467A03BE1E73D5070040CE8B /* Build configuration list for PBXNativeTarget "ScoreBoardTests" */ = {
 			isa = XCConfigurationList;
@@ -579,6 +584,7 @@
 				467A03C01E73D5070040CE8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		467A03C11E73D5070040CE8B /* Build configuration list for PBXNativeTarget "ScoreBoardUITests" */ = {
 			isa = XCConfigurationList;
@@ -587,6 +593,7 @@
 				467A03C31E73D5070040CE8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
