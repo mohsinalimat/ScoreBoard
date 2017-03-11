@@ -67,7 +67,7 @@
                                                         <constraint firstAttribute="width" constant="63" id="1bp-VX-jEs"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zDM-4M-Ree">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="zDM-4M-Ree">
                                                     <rect key="frame" x="337" y="25" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="pg7-TM-otR"/>
@@ -191,11 +191,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="OG0-6J-i7w">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ezr-6P-qMV">
-                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SBTableCell" rowHeight="80" id="fpI-Jo-1cv" customClass="SBTableCell" customModule="ScoreBoard" customModuleProvider="target">
@@ -211,7 +211,7 @@
                                                         <constraint firstAttribute="width" constant="63" id="Qui-gK-QuD"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d4x-Hp-laD">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="d4x-Hp-laD">
                                                     <rect key="frame" x="337" y="25" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="UGj-8I-TGC"/>
@@ -253,13 +253,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OG0-6J-i7w" firstAttribute="leading" secondItem="Ngk-7v-xcR" secondAttribute="leading" id="0vj-Am-hgb"/>
-                            <constraint firstItem="OG0-6J-i7w" firstAttribute="top" secondItem="SuE-nj-XDk" secondAttribute="bottom" constant="8" id="9X1-mf-fOq"/>
-                            <constraint firstItem="OG0-6J-i7w" firstAttribute="leading" secondItem="ezr-6P-qMV" secondAttribute="leading" id="LQb-AU-cYD"/>
-                            <constraint firstItem="ezr-6P-qMV" firstAttribute="bottom" secondItem="VKj-MG-ZfS" secondAttribute="top" id="WhX-eB-Jnj"/>
-                            <constraint firstItem="OG0-6J-i7w" firstAttribute="trailing" secondItem="ezr-6P-qMV" secondAttribute="trailing" id="YD4-Kz-tzI"/>
-                            <constraint firstAttribute="trailing" secondItem="OG0-6J-i7w" secondAttribute="trailing" id="YNW-hW-c07"/>
-                            <constraint firstItem="ezr-6P-qMV" firstAttribute="top" secondItem="OG0-6J-i7w" secondAttribute="bottom" id="tY9-uX-Ryd"/>
+                            <constraint firstItem="ezr-6P-qMV" firstAttribute="bottom" secondItem="VKj-MG-ZfS" secondAttribute="top" id="aY9-OV-lQV"/>
+                            <constraint firstItem="OG0-6J-i7w" firstAttribute="leading" secondItem="ezr-6P-qMV" secondAttribute="leading" id="bCf-mZ-033"/>
+                            <constraint firstItem="OG0-6J-i7w" firstAttribute="leading" secondItem="Ngk-7v-xcR" secondAttribute="leading" id="cFw-nw-SU4"/>
+                            <constraint firstItem="OG0-6J-i7w" firstAttribute="trailing" secondItem="ezr-6P-qMV" secondAttribute="trailing" id="fib-mu-JrF"/>
+                            <constraint firstItem="ezr-6P-qMV" firstAttribute="top" secondItem="OG0-6J-i7w" secondAttribute="bottom" id="fjP-Rn-BXL"/>
+                            <constraint firstItem="OG0-6J-i7w" firstAttribute="top" secondItem="SuE-nj-XDk" secondAttribute="bottom" id="nsS-hA-Jfd"/>
+                            <constraint firstAttribute="trailing" secondItem="OG0-6J-i7w" secondAttribute="trailing" id="zsj-cM-Qq3"/>
                         </constraints>
                     </view>
                     <connections>
@@ -501,6 +501,7 @@
     <resources>
         <image name="favourite_default" width="16" height="16"/>
         <image name="favourite_set" width="16" height="16"/>
+        <image name="next" width="24" height="24"/>
         <image name="user_default" width="50" height="50"/>
     </resources>
 </document>
