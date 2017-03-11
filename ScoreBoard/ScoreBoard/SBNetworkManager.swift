@@ -8,11 +8,6 @@
 
 import UIKit
 
-//enum LANGUAGES : String {
-//    
-//    case ENG = "en"
-//}
-
 class SBNetworkManager: NSObject {
     
      public var responseArray : NSMutableArray?
