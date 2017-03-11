@@ -36,6 +36,19 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setUpNavigation()
+    }
+    
+    func setUpNavigation() {
+    
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white,
+                                                                        NSFontAttributeName: UIFont(name: "Helvetica", size: 18) as Any]
+        
+        self.navigationController!.navigationBar.barTintColor = UIColor.blue
+        self.navigationController!.navigationBar.tintColor = UIColor.white
+    }
     
     //====================================================================================================================================
     // BUTTON ACTIONS
@@ -92,6 +105,11 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
         
         let player = filteredList?.object(at: indexPath.row) as! SBPlayer
 
+        DispatchQueue.main.async {
+            tableCell.playerImageView.layer.cornerRadius = tableCell.playerImageView.frame.size.width/2;
+            tableCell.playerImageView.layer.masksToBounds = true
+        }        
+        
         tableCell.playerNameLabel.text = player.name as String?
         
         var image = UIImage(named: "favourite_default.png")

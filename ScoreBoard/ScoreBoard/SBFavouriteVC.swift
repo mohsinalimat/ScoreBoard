@@ -56,6 +56,11 @@ class SBFavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         let player = filteredList?.object(at: indexPath.row) as! SBPlayer
         
+        DispatchQueue.main.async {
+            tableCell.playerImageView.layer.cornerRadius = tableCell.playerImageView.frame.size.width/2;
+            tableCell.playerImageView.layer.masksToBounds = true
+        }
+        
         tableCell.playerNameLabel.text = player.name as String?
         
         var image = UIImage(named: "favourite_default.png")
