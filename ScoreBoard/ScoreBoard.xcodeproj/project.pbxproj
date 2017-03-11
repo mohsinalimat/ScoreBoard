@@ -24,6 +24,9 @@
 		467A03D31E73E7EC0040CE8B /* SBPlayerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03D21E73E7EC0040CE8B /* SBPlayerListVC.swift */; };
 		467A03D51E73E8130040CE8B /* SBPlayerDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03D41E73E8130040CE8B /* SBPlayerDetailVC.swift */; };
 		467A03D71E7408570040CE8B /* SBImageFullVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03D61E7408570040CE8B /* SBImageFullVC.swift */; };
+		46932C661E7437FD0057A288 /* Favourite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46932C641E7437FD0057A288 /* Favourite+CoreDataClass.swift */; };
+		46932C671E7437FD0057A288 /* Favourite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46932C651E7437FD0057A288 /* Favourite+CoreDataProperties.swift */; };
+		46932C6A1E7442760057A288 /* SBDBPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46932C691E7442760057A288 /* SBDBPersistence.swift */; };
 		A39A56C4A4E34EE2D3E81CF5 /* Pods_ScoreBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990B3B519BCC22A18D82C308 /* Pods_ScoreBoardTests.framework */; };
 		F9E8CC9049E121551C040E6A /* Pods_ScoreBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6953BBCEB392C6BB197D0F77 /* Pods_ScoreBoard.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +72,9 @@
 		467A03D21E73E7EC0040CE8B /* SBPlayerListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBPlayerListVC.swift; sourceTree = "<group>"; };
 		467A03D41E73E8130040CE8B /* SBPlayerDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBPlayerDetailVC.swift; sourceTree = "<group>"; };
 		467A03D61E7408570040CE8B /* SBImageFullVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBImageFullVC.swift; sourceTree = "<group>"; };
+		46932C641E7437FD0057A288 /* Favourite+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Favourite+CoreDataClass.swift"; sourceTree = "<group>"; };
+		46932C651E7437FD0057A288 /* Favourite+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Favourite+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		46932C691E7442760057A288 /* SBDBPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBDBPersistence.swift; sourceTree = "<group>"; };
 		58D2FEA46CEF6ED26E3DE440 /* Pods_ScoreBoardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScoreBoardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D3C3DE3D66D3CEF1FA4DCF9 /* Pods-ScoreBoardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoreBoardUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScoreBoardUITests/Pods-ScoreBoardUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6953BBCEB392C6BB197D0F77 /* Pods_ScoreBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScoreBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,7 +166,7 @@
 				467A039D1E73D5070040CE8B /* Assets.xcassets */,
 				467A039F1E73D5070040CE8B /* LaunchScreen.storyboard */,
 				467A03A21E73D5070040CE8B /* Info.plist */,
-				467A039A1E73D5070040CE8B /* ScoreBoard.xcdatamodeld */,
+				46932C681E7442460057A288 /* SBDatabase */,
 				467A03CF1E73E74C0040CE8B /* SBViewControllers */,
 				467A03CE1E73E7320040CE8B /* SBTableCells */,
 				467A03CB1E73DC110040CE8B /* SBPlayer */,
@@ -222,6 +228,17 @@
 				467A03D61E7408570040CE8B /* SBImageFullVC.swift */,
 			);
 			name = SBViewControllers;
+			sourceTree = "<group>";
+		};
+		46932C681E7442460057A288 /* SBDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				46932C641E7437FD0057A288 /* Favourite+CoreDataClass.swift */,
+				46932C651E7437FD0057A288 /* Favourite+CoreDataProperties.swift */,
+				467A039A1E73D5070040CE8B /* ScoreBoard.xcdatamodeld */,
+				46932C691E7442760057A288 /* SBDBPersistence.swift */,
+			);
+			name = SBDatabase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,9 +524,12 @@
 			files = (
 				467A03CD1E73DC2A0040CE8B /* SBPlayer.swift in Sources */,
 				467A03D11E73E7810040CE8B /* SBTableCell.swift in Sources */,
+				46932C6A1E7442760057A288 /* SBDBPersistence.swift in Sources */,
 				467A03961E73D5070040CE8B /* ViewController.swift in Sources */,
 				467A03D51E73E8130040CE8B /* SBPlayerDetailVC.swift in Sources */,
+				46932C671E7437FD0057A288 /* Favourite+CoreDataProperties.swift in Sources */,
 				467A03CA1E73D5CE0040CE8B /* SBHTTPResponse.swift in Sources */,
+				46932C661E7437FD0057A288 /* Favourite+CoreDataClass.swift in Sources */,
 				467A03D31E73E7EC0040CE8B /* SBPlayerListVC.swift in Sources */,
 				467A039C1E73D5070040CE8B /* ScoreBoard.xcdatamodeld in Sources */,
 				467A03D71E7408570040CE8B /* SBImageFullVC.swift in Sources */,
