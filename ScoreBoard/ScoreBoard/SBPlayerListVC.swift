@@ -69,28 +69,6 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
     // SEARCH BAR DELEGATE
     //====================================================================================================================================
     
-    /*
-     
-     - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-     
-     dispatch_async(dispatch_get_main_queue(), ^{
-     
-     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains[cd] %@", searchText];
-     [self.filteredArray removeAllObjects];
-     NSArray *searchArray = [self.empList filteredArrayUsingPredicate:predicate];
-     [self.filteredArray addObjectsFromArray:searchArray];
-     
-     if (!searchText.length) {
-     [self.filteredArray addObjectsFromArray:self.empList];
-     [searchBar resignFirstResponder];
-     }
-     
-     [self.empTableView reloadData];
-     });
-     }
-     
-     */
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         DispatchQueue.main.async {
