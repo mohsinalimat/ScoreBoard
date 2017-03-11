@@ -1,0 +1,6 @@
+framework module Pods_ScoreBoard {
+  umbrella header "Pods-ScoreBoard-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SBImageFullVC: UIViewController {
 
@@ -24,8 +25,13 @@ class SBImageFullVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        self.profileImage?.image = self.player?.image
         self.playerName?.text = self.player?.name as String?
+        
+        if (self.player?.image != nil) {
+            
+            let imageURL = NSURL(string : self.player?.image as! String)
+            self.profileImage?.sd_setImage(with: imageURL as URL!, placeholderImage: UIImage(named: "user_default.png"))
+        }
     }
 
     override func didReceiveMemoryWarning() {

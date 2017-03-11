@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
@@ -51,9 +52,16 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
         tableCell.playerNameLabel.text = player.name as String?
         
         var image = UIImage(named: "favourite_default.png")
-        if (player.favourite == true) {
+        if ((player.favourite!)) {
             image = UIImage(named: "favourite_set.png")
         }
+        
+        if (player.image != nil) {
+            
+            let imageURL = NSURL(string : player.image as! String)
+            tableCell.playerImageView.sd_setImage(with: imageURL as URL!, placeholderImage: UIImage(named: "user_default.png"))
+        }
+        
         tableCell.favouriteButton.setImage(image, for: .normal)
         
         return tableCell
@@ -81,7 +89,7 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
         player.favourite = !(player.favourite!)
         var image = UIImage(named: "favourite_default.png")
         
-        if (player.favourite == true) {
+        if ((player.favourite!)) {
             image = UIImage(named: "favourite_set.png")
         }
         

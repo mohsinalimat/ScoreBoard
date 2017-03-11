@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SBPlayerDetailVC: UIViewController {
 
@@ -39,6 +40,12 @@ class SBPlayerDetailVC: UIViewController {
         self.playerRuns?.text = NSString(format:"%@",(self.player?.total_score)!) as String
         self.playerMatches?.text = NSString(format:"%@",(self.player?.matches_played)!) as String
         self.playerDescription?.text = self.player?.playerdescription as String?
+        
+        if (self.player?.image != nil) {
+            
+            let imageURL = NSURL(string : self.player?.image as! String)
+            self.playerImage.sd_setImage(with: imageURL as URL!, placeholderImage: UIImage(named: "user_default.png"))
+        }        
     }
     
     override func didReceiveMemoryWarning() {
