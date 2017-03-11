@@ -15,6 +15,9 @@
 		467A03A11E73D5070040CE8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 467A039F1E73D5070040CE8B /* LaunchScreen.storyboard */; };
 		467A03AC1E73D5070040CE8B /* ScoreBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03AB1E73D5070040CE8B /* ScoreBoardTests.swift */; };
 		467A03B71E73D5070040CE8B /* ScoreBoardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03B61E73D5070040CE8B /* ScoreBoardUITests.swift */; };
+		467A03C61E73D59F0040CE8B /* SBNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03C51E73D59F0040CE8B /* SBNetworkManager.swift */; };
+		467A03C81E73D5C00040CE8B /* SBHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03C71E73D5C00040CE8B /* SBHTTPRequest.swift */; };
+		467A03CA1E73D5CE0040CE8B /* SBHTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03C91E73D5CE0040CE8B /* SBHTTPResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		467A03B21E73D5070040CE8B /* ScoreBoardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoreBoardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		467A03B61E73D5070040CE8B /* ScoreBoardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardUITests.swift; sourceTree = "<group>"; };
 		467A03B81E73D5070040CE8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		467A03C51E73D59F0040CE8B /* SBNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBNetworkManager.swift; sourceTree = "<group>"; };
+		467A03C71E73D5C00040CE8B /* SBHTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBHTTPRequest.swift; sourceTree = "<group>"; };
+		467A03C91E73D5CE0040CE8B /* SBHTTPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBHTTPResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 				467A039F1E73D5070040CE8B /* LaunchScreen.storyboard */,
 				467A03A21E73D5070040CE8B /* Info.plist */,
 				467A039A1E73D5070040CE8B /* ScoreBoard.xcdatamodeld */,
+				467A03C41E73D56A0040CE8B /* SBNetwork */,
 			);
 			path = ScoreBoard;
 			sourceTree = "<group>";
@@ -126,6 +133,16 @@
 				467A03B81E73D5070040CE8B /* Info.plist */,
 			);
 			path = ScoreBoardUITests;
+			sourceTree = "<group>";
+		};
+		467A03C41E73D56A0040CE8B /* SBNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				467A03C51E73D59F0040CE8B /* SBNetworkManager.swift */,
+				467A03C71E73D5C00040CE8B /* SBHTTPRequest.swift */,
+				467A03C91E73D5CE0040CE8B /* SBHTTPResponse.swift */,
+			);
+			name = SBNetwork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,8 +280,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				467A03961E73D5070040CE8B /* ViewController.swift in Sources */,
+				467A03CA1E73D5CE0040CE8B /* SBHTTPResponse.swift in Sources */,
 				467A039C1E73D5070040CE8B /* ScoreBoard.xcdatamodeld in Sources */,
 				467A03941E73D5070040CE8B /* AppDelegate.swift in Sources */,
+				467A03C81E73D5C00040CE8B /* SBHTTPRequest.swift in Sources */,
+				467A03C61E73D59F0040CE8B /* SBNetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
