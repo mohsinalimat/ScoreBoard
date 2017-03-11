@@ -114,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				467A03931E73D5070040CE8B /* AppDelegate.swift */,
-				467A03951E73D5070040CE8B /* ViewController.swift */,
 				467A03971E73D5070040CE8B /* Main.storyboard */,
 				467A039D1E73D5070040CE8B /* Assets.xcassets */,
 				467A039F1E73D5070040CE8B /* LaunchScreen.storyboard */,
@@ -175,6 +174,7 @@
 		467A03CF1E73E74C0040CE8B /* SBViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				467A03951E73D5070040CE8B /* ViewController.swift */,
 				467A03D21E73E7EC0040CE8B /* SBPlayerListVC.swift */,
 				467A03D41E73E8130040CE8B /* SBPlayerDetailVC.swift */,
 			);

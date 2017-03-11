@@ -96,7 +96,16 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
         DispatchQueue.main.async {
          
             let predicate = NSPredicate(format: "name contains[cd] %@", searchText)
+            self.filteredList?.removeAllObjects()
+            let searcArray = self.playerList?.filtered(using: predicate)
+            self.filteredList?.addObjects(from: searcArray!)
             
+            if (searchText.characters.count == 0) {
+             
+                self.filteredList?.addObjects(from: self.playerList?.mutableCopy() as! [Any])
+                searchBar.resignFirstResponder()
+            }
+            self.playerTableView.reloadData()
         }
     }
     
