@@ -44,9 +44,17 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "SBTableCell") as! SBTableCell
+        tableCell.delegate = self
+        
         let player = filteredList?.object(at: indexPath.row) as! SBPlayer
 
         tableCell.playerNameLabel.text = player.name as String?
+        
+        var image = UIImage(named: "favourite_default.png")
+        if (player.favourite == true) {
+            image = UIImage(named: "favourite_set.png")
+        }
+        tableCell.favouriteButton.setImage(image, for: .normal)
         
         return tableCell
     }
@@ -62,7 +70,17 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
     //====================================================================================================================================
     
     internal func didTapFavouriteButton(cell: SBTableCell) {
+     
+        let indexPath = self.playerTableView.indexPath(for: cell)
+        let player = filteredList?.object(at: (indexPath?.row)!) as! SBPlayer
+        player.favourite = !(player.favourite!)
+        var image = UIImage(named: "favourite_default.png")
         
+        if (player.favourite == true) {
+            image = UIImage(named: "favourite_set.png")
+        }
+        
+        cell.favouriteButton.setImage(image, for: .normal)
     }
     
     //====================================================================================================================================

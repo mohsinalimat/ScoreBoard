@@ -17,8 +17,9 @@ class SBTableCell: UITableViewCell {
     @IBOutlet weak var playerImageView: UIImageView!
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var nextImageView: UIImageView!
-    weak var delegate: SBPlayerCellDelegate?
+    @IBOutlet weak var favouriteButton: UIButton!
 
+    weak var delegate: SBPlayerCellDelegate?
     
     @IBAction func favouriteAction(_ sender: Any) {
         self.delegate?.didTapFavouriteButton(cell: self)
