@@ -18,5 +18,10 @@ extension Favourite {
 
     @NSManaged public var id: String?
     @NSManaged public var favourite: Bool
+    @NSManaged public var country: String?
+    @NSManaged public var matches: String?
+    @NSManaged public var playerDesc: String?
+    @NSManaged public var runs: String?
+    @NSManaged public var name: String?
 
 }

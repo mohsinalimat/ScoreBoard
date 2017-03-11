@@ -1,5 +1,5 @@
 //
-//  SBPlayerListVC.swift
+//  SBFavouriteVC.swift
 //  ScoreBoard
 //
 //  Created by Abhishek Thapliyal on 3/11/17.
@@ -7,74 +7,34 @@
 //
 
 import UIKit
-import SDWebImage
 
-class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class SBFavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var playerSearchBar: UISearchBar!
     @IBOutlet weak var playerTableView: UITableView!
-    @IBOutlet weak var totalCount: UILabel!
     
-    var playerList : NSMutableArray?                // BASE ARRAY
-    var filteredList : NSMutableArray?              // FILTER ARRAY
+    var playerList : NSMutableArray?
+    var filteredList : NSMutableArray?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         
         self.playerSearchBar.delegate = self
         self.playerTableView.delegate = self
         self.playerTableView.dataSource = self
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+//        self.playerList = 
         self.filteredList = NSMutableArray(array : self.playerList!)
-        self.totalCount.text = NSString(format: "Total Player %lu", (self.playerList?.count)!) as String
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    
-    //====================================================================================================================================
-    // BUTTON ACTIONS
-    //====================================================================================================================================
-    
-    @IBAction func sortAction(_ sender: Any) {
-        
-        let alertController = UIAlertController(title: "Sort Types", message: nil, preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel , handler:nil)
-        
-        let totalRun = UIAlertAction(title: "Runs", style: .default) { action in
-            self.sortArray(param: "total_score")
-        }
-        
-        let totalMatches = UIAlertAction(title: "Matches", style: .default) { action in
-            self.sortArray(param: "matches_played")
-        }
-        
-        alertController.addAction(totalRun)
-        alertController.addAction(totalMatches)
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true , completion:nil)
-    }
-
-    
-    @IBAction func favouriteButton(_ sender: Any) {
-    
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let favouriteVC = storyBoard.instantiateViewController(withIdentifier: "SBFavouriteVC") as! SBFavouriteVC
-        self.navigationController?.pushViewController(favouriteVC, animated: true)
-    }
-    
-    func sortArray(param: NSString?) {
-        
-        let descriptor = NSSortDescriptor(key: param as String?, ascending: false)
-        self.filteredList = NSMutableArray(array : (self.playerList?.sortedArray(using: [descriptor]))!)
-        self.playerTableView.reloadData()
     }
 
     //====================================================================================================================================
@@ -85,13 +45,12 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
         return (filteredList?.count)!
     }
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "SBTableCell") as! SBTableCell
-        tableCell.delegate = self
         
         let player = filteredList?.object(at: indexPath.row) as! SBPlayer
-
+        
         tableCell.playerNameLabel.text = player.name as String?
         
         var image = UIImage(named: "favourite_default.png")
@@ -110,7 +69,7 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
         return tableCell
     }
     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let player = filteredList?.object(at: indexPath.row) as! SBPlayer
         print("SELECTED_PLAYER : \((player.name)!)")
@@ -122,38 +81,20 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
     }
     
     //====================================================================================================================================
-    // TABLE CELL DELEGATE
-    //====================================================================================================================================
-    
-    internal func didTapFavouriteButton(cell: SBTableCell) {
-     
-        let indexPath = self.playerTableView.indexPath(for: cell)
-        let player = filteredList?.object(at: (indexPath?.row)!) as! SBPlayer
-        player.favourite = !(player.favourite!)
-        var image = UIImage(named: "favourite_default.png")
-        
-        if ((player.favourite!)) {
-            image = UIImage(named: "favourite_set.png")
-        }
-        
-        cell.favouriteButton.setImage(image, for: .normal)
-    }
-    
-    //====================================================================================================================================
     // SEARCH BAR DELEGATE
     //====================================================================================================================================
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         DispatchQueue.main.async {
-         
+            
             let predicate = NSPredicate(format: "name contains[cd] %@ OR country contains[cd] %@", searchText, searchText)
             self.filteredList?.removeAllObjects()
             let searcArray = self.playerList?.filtered(using: predicate)
             self.filteredList?.addObjects(from: searcArray!)
             
             if (searchText.characters.count == 0) {
-             
+                
                 self.filteredList?.addObjects(from: self.playerList?.mutableCopy() as! [Any])
                 searchBar.resignFirstResponder()
             }
@@ -170,11 +111,12 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-         searchBar.resignFirstResponder()
+        searchBar.resignFirstResponder()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
+    
     
 }
