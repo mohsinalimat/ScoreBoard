@@ -22,11 +22,14 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+
+    @IBAction func goAction(_ sender: Any) {
         
         SBNetworkManager().getPlayers(sortType: "") { (arrayList, error) in
             
             DispatchQueue.main.async {
-             
+                
                 let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
                 let navigationVC = storyBoard.instantiateViewController(withIdentifier: "SBPlayerNavigationVC") as! UINavigationController
                 let viewArray = navigationVC.viewControllers as NSArray
@@ -36,6 +39,5 @@ class ViewController: UIViewController {
             }
         }
     }
-
 }
 
