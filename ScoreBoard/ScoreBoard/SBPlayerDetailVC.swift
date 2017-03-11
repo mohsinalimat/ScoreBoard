@@ -17,14 +17,18 @@ class SBPlayerDetailVC: UIViewController {
     @IBOutlet weak var playerRuns: UILabel?
     @IBOutlet weak var playerMatches: UILabel?
     @IBOutlet weak var playerDescription: UILabel?
+    @IBOutlet weak var playerImage: UIImageView!
     
     @IBOutlet weak var shareButton: UIButton?
     @IBOutlet weak var linkButton: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
+        
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(self.gestureAction))
+        tapGesture.numberOfTapsRequired = 1
+        self.playerImage.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,5 +59,13 @@ class SBPlayerDetailVC: UIViewController {
     @IBAction func linkAction(_ sender: Any) {
         
     }
-    
+ 
+    func gestureAction() {
+        
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let fullScreenVC = storyBoard.instantiateViewController(withIdentifier: "SBImageFullVC") as! SBImageFullVC
+        fullScreenVC.player = self.player
+        
+        self.present(fullScreenVC, animated: true, completion: nil)
+    }
 }
