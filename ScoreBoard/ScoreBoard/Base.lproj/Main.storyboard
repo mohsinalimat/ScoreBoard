@@ -78,7 +78,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qy7-EX-Y9Y" id="38f-Me-q9a">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_default" translatesAutoresizingMaskIntoConstraints="NO" id="NP2-3R-kOy">
@@ -222,7 +222,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fpI-Jo-1cv" id="gSC-JM-6I1">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_default" translatesAutoresizingMaskIntoConstraints="NO" id="5Jo-Pz-AKf">
@@ -283,8 +283,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="playerSearchBar" destination="OG0-6J-i7w" id="V1u-Pn-EEi"/>
-                        <outlet property="playerTableView" destination="ezr-6P-qMV" id="1x2-NV-DVX"/>
+                        <outlet property="favSearchBar" destination="OG0-6J-i7w" id="91Z-9j-7Hu"/>
+                        <outlet property="favTableView" destination="ezr-6P-qMV" id="b9g-FY-eK1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khf-tC-K8t" userLabel="First Responder" sceneMemberID="firstResponder"/>

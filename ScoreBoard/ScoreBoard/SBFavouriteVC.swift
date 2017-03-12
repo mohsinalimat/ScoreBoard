@@ -10,8 +10,8 @@ import UIKit
 
 class SBFavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
-    @IBOutlet weak var playerSearchBar: UISearchBar!
-    @IBOutlet weak var playerTableView: UITableView!
+    @IBOutlet weak var favSearchBar: UISearchBar!
+    @IBOutlet weak var favTableView: UITableView!
     
     var playerList : NSMutableArray?
     var filteredList : NSMutableArray?
@@ -20,9 +20,9 @@ class SBFavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.playerSearchBar.delegate = self
-        self.playerTableView.delegate = self
-        self.playerTableView.dataSource = self
+        self.favSearchBar.delegate = self
+        self.favTableView.delegate = self
+        self.favTableView.dataSource = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -32,8 +32,9 @@ class SBFavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         SBDBManager().fetchEntities { (arrayList) in
             
             self.playerList = NSMutableArray(array:arrayList)
-            self.filteredList = NSMutableArray(array : self.playerList!)
-            self.playerTableView.reloadData()
+            self.filteredList = NSMutableArray(array : arrayList)
+            print("FAVOURITE_COUNT \((self.filteredList?.count)!)")
+            self.favTableView.reloadData()
         }
     }
     
@@ -47,41 +48,43 @@ class SBFavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     //====================================================================================================================================
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (filteredList?.count)!
+        return (self.filteredList?.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "SBTableCell") as! SBTableCell
         
-        let player = filteredList?.object(at: indexPath.row) as! SBPlayer
+        let playerOb = self.filteredList?.object(at: indexPath.row) as! SBPlayer
         
         DispatchQueue.main.async {
-            tableCell.playerImageView.layer.cornerRadius = tableCell.playerImageView.frame.size.width/2;
-            tableCell.playerImageView.layer.masksToBounds = true
+            tableCell.playerImageView?.layer.cornerRadius = (tableCell.playerImageView?.frame.size.width)!/2;
+            tableCell.playerImageView?.layer.masksToBounds = true
         }
         
-        tableCell.playerNameLabel.text = player.name as String?
+        print("WHATTTTTTTTTTTTT : \((playerOb.name)!)")
+        
+        tableCell.playerNameLabel?.text = playerOb.name as String?
         
         var image = UIImage(named: "favourite_default.png")
-        if ((player.favourite!)) {
+        if ((playerOb.favourite!)) {
             image = UIImage(named: "favourite_set.png")
         }
         
-        if (player.image != nil) {
+        if (playerOb.image != nil) {
             
-            let imageURL = NSURL(string : player.image as! String)
-            tableCell.playerImageView.sd_setImage(with: imageURL as URL!, placeholderImage: UIImage(named: "user_default.png"))
+            let imageURL = NSURL(string : playerOb.image as! String)
+            tableCell.playerImageView?.sd_setImage(with: imageURL as URL!, placeholderImage: UIImage(named: "user_default.png"))
         }
         
-        tableCell.favouriteButton.setImage(image, for: .normal)
+        tableCell.favouriteButton?.setImage(image, for: .normal)
         
         return tableCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let player = filteredList?.object(at: indexPath.row) as! SBPlayer
+        let player = self.filteredList?.object(at: indexPath.row) as! SBPlayer
         print("SELECTED_PLAYER : \((player.name)!)")
         
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -108,7 +111,7 @@ class SBFavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 self.filteredList?.addObjects(from: self.playerList?.mutableCopy() as! [Any])
                 searchBar.resignFirstResponder()
             }
-            self.playerTableView.reloadData()
+            self.favTableView.reloadData()
         }
     }
     

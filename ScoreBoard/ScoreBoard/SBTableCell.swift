@@ -14,10 +14,10 @@ protocol SBPlayerCellDelegate: class {
 
 class SBTableCell: UITableViewCell {
 
-    @IBOutlet weak var playerImageView: UIImageView!
-    @IBOutlet weak var playerNameLabel: UILabel!
-    @IBOutlet weak var nextImageView: UIImageView!
-    @IBOutlet weak var favouriteButton: UIButton!
+    @IBOutlet weak var playerImageView: UIImageView?
+    @IBOutlet weak var playerNameLabel: UILabel?
+    @IBOutlet weak var nextImageView: UIImageView?
+    @IBOutlet weak var favouriteButton: UIButton?
 
     weak var delegate: SBPlayerCellDelegate?
     

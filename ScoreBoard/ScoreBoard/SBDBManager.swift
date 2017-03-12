@@ -16,12 +16,18 @@ class SBDBManager: NSObject {
         let dbPersistence = SBDBPersistence.sharedInstance
         let context = dbPersistence.persistentContainer.viewContext as NSManagedObjectContext
         
-        let entityDescription  = NSEntityDescription.entity(forEntityName: "Favourite", in: context)
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Favourite", in: context)
         
         let favouriteObj = Favourite(entity: entityDescription!, insertInto: context)
         
         favouriteObj.setValue(player.id as String?, forKey: "id")
-        favouriteObj.setValue(false, forKey: "favourite")
+        favouriteObj.setValue(player.name as String?, forKey: "name")
+        favouriteObj.setValue(player.country, forKey: "country")
+        favouriteObj.setValue(player.description, forKey: "playerDesc")
+        favouriteObj.setValue(player.matches_played, forKey: "matches")
+        favouriteObj.setValue(player.total_score, forKey: "runs")
+        let boolObj = NSNumber(value: player.favourite!)
+        favouriteObj.setValue(boolObj, forKey: "favourite")
         
         do {
             try context.save()
@@ -34,40 +40,53 @@ class SBDBManager: NSObject {
         
         let dbPersistence = SBDBPersistence.sharedInstance
         let context = dbPersistence.persistentContainer.viewContext as NSManagedObjectContext
+        
         let predicate = NSPredicate(format:"id == %@", id!)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Favourite")
         fetchRequest.predicate = predicate
         
-        let playerObj = SBPlayer()
+        let playerOb = SBPlayer()
         do {
-            let resultArray = try context.fetch(fetchRequest) as! [NSManagedObject]
+            let resultArray = try context.fetch(fetchRequest) as! [Favourite]
             
             if ((resultArray.count) > 0) {
-                let player = (resultArray[0])
-                playerObj.id = player.value(forKey: "id") as! NSString?
-                playerObj.favourite = (player.value(forKey: "favourite") as! Bool)
+                
+                let player = (resultArray[0]) as Favourite
+                
+                playerOb.id = player.value(forKey: "id") as! NSString? 
+                playerOb.name = player.value(forKey: "name") as! NSString?
+                playerOb.playerdescription = player.value(forKey: "playerDesc") as! NSString?
+                playerOb.country = player.value(forKey: "country") as! NSString?
+                playerOb.matches_played = player.value(forKey: "matches") as! NSString?
+                playerOb.total_score = player.value(forKey: "runs") as! NSString?
+                
+                let boolObj = player.value(forKey: "favourite") as! NSNumber?
+                playerOb.favourite = boolObj?.boolValue
+                
             }
             
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
-        return playerObj
+        return playerOb
     }
     
     public func updatEntity(id: NSString?, flag : Bool) {
     
         let dbPersistence = SBDBPersistence.sharedInstance
         let context = dbPersistence.persistentContainer.viewContext as NSManagedObjectContext
+        
         let predicate = NSPredicate(format:"id == %@", id!)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Favourite")
         fetchRequest.predicate = predicate
         
         do {
-        let resultArray = try context.fetch(fetchRequest) as! [NSManagedObject]
+        let resultArray = try context.fetch(fetchRequest) as! [Favourite]
         
         if ((resultArray.count) > 0) {
-        let player = (resultArray[0])
-           player.setValue(flag, forKey: "favourite")
+            
+            let player = (resultArray[0])
+            player.setValue(flag, forKey: "favourite")
         }
         
         } catch let error as NSError {
@@ -79,6 +98,7 @@ class SBDBManager: NSObject {
         
         let dbPersistence = SBDBPersistence.sharedInstance
         let context = dbPersistence.persistentContainer.viewContext as NSManagedObjectContext
+        
         let entityDescription = NSEntityDescription.entity(forEntityName: "Favourite", in: context)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
         let predicate = NSPredicate(format: "favourite == %@", NSNumber(value: true))
@@ -88,7 +108,7 @@ class SBDBManager: NSObject {
         let resultArray = NSMutableArray()
         
         do {
-            let result = try context.fetch(fetchRequest) as! [NSManagedObject]
+            let result = try context.fetch(fetchRequest) as! [Favourite]
             
             for playerOb in result {
                 
@@ -103,6 +123,8 @@ class SBDBManager: NSObject {
                 let boolObj = playerOb.value(forKey: "favourite") as! NSNumber?
                 player.favourite = boolObj?.boolValue
                 
+                print("NAME_FETCH \((player.name)!)")
+                
                 resultArray.add(player)
             }
             
@@ -116,6 +138,7 @@ class SBDBManager: NSObject {
     public func fetchEntities(completion : @escaping (_ arrayList: NSMutableArray) -> Void) {
         
         let list : NSMutableArray = self.fetchFavourite()
+        print("LIST_COUNT \((list.count))")
         completion(list)
     }
     

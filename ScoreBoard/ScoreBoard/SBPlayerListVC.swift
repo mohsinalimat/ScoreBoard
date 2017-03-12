@@ -29,6 +29,11 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
         
         self.filteredList = NSMutableArray(array : self.playerList!)
         self.totalCount.text = NSString(format: "Total Player %lu", (self.playerList?.count)!) as String
+
+        for playerp in self.playerList! {
+            SBDBManager().insertEntity(player: playerp as! SBPlayer)
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -95,7 +100,7 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
     //====================================================================================================================================
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (filteredList?.count)!
+        return (self.filteredList?.count)!
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,14 +108,14 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "SBTableCell") as! SBTableCell
         tableCell.delegate = self
         
-        let player = filteredList?.object(at: indexPath.row) as! SBPlayer
+        let player = self.filteredList?.object(at: indexPath.row) as! SBPlayer
 
         DispatchQueue.main.async {
-            tableCell.playerImageView.layer.cornerRadius = tableCell.playerImageView.frame.size.width/2;
-            tableCell.playerImageView.layer.masksToBounds = true
+            tableCell.playerImageView?.layer.cornerRadius = (tableCell.playerImageView?.frame.size.width)!/2;
+            tableCell.playerImageView?.layer.masksToBounds = true
         }        
         
-        tableCell.playerNameLabel.text = player.name as String?
+        tableCell.playerNameLabel?.text = player.name as String?
         
         var image = UIImage(named: "favourite_default.png")
         if ((player.favourite!)) {
@@ -120,10 +125,10 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
         if (player.image != nil) {
             
             let imageURL = NSURL(string : player.image as! String)
-            tableCell.playerImageView.sd_setImage(with: imageURL as URL!, placeholderImage: UIImage(named: "user_default.png"))
+            tableCell.playerImageView?.sd_setImage(with: imageURL as URL!, placeholderImage: UIImage(named: "user_default.png"))
         }
         
-        tableCell.favouriteButton.setImage(image, for: .normal)
+        tableCell.favouriteButton?.setImage(image, for: .normal)
         
         return tableCell
     }
@@ -155,8 +160,8 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
         }
         
         SBDBManager().updatEntity(id: player.id, flag: player.favourite!)
-        
-        cell.favouriteButton.setImage(image, for: .normal)
+
+        cell.favouriteButton?.setImage(image, for: .normal)
     }
     
     //====================================================================================================================================

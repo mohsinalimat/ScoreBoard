@@ -34,6 +34,9 @@ class SBNetworkManager: NSObject {
                 for recordDict in self.records as! [[String:Any]] {
                  
                     let player = SBPlayer(dictionary: recordDict)
+                    
+//                    SBDBManager().insertEntity(player: player)
+                    
                     self.responseArray?.add(player)
 //                    print("PLAYER : \((player.name)!)")
 //                    print("PLAYER RUN: \((player.total_score)!)")
