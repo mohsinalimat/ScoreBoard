@@ -29,11 +29,6 @@ class SBPlayerListVC: UIViewController, SBPlayerCellDelegate, UITableViewDelegat
         
         self.filteredList = NSMutableArray(array : self.playerList!)
         self.totalCount.text = NSString(format: "Total Player %lu", (self.playerList?.count)!) as String
-
-        for playerp in self.playerList! {
-            SBDBManager().insertEntity(player: playerp as! SBPlayer)
-        }
-        
     }
     
     override func didReceiveMemoryWarning() {

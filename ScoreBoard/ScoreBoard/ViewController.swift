@@ -28,6 +28,10 @@ class ViewController: UIViewController {
         
         SBNetworkManager().getPlayers(sortType: "") { (arrayList, error) in
             
+            for playerp in arrayList! {
+                SBDBManager().insertEntity(player: playerp as! SBPlayer)
+            }
+            
             DispatchQueue.main.async {
                 
                 let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
