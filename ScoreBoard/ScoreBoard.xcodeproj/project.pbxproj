@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2CE4AD6C5EEBA7F163D8D65A /* Pods_ScoreBoardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D2FEA46CEF6ED26E3DE440 /* Pods_ScoreBoardUITests.framework */; };
+		466FB4801E74F9CD00D7CD41 /* SBFavTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466FB47F1E74F9CD00D7CD41 /* SBFavTableCell.swift */; };
 		467A03941E73D5070040CE8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03931E73D5070040CE8B /* AppDelegate.swift */; };
 		467A03961E73D5070040CE8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467A03951E73D5070040CE8B /* ViewController.swift */; };
 		467A03991E73D5070040CE8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 467A03971E73D5070040CE8B /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		2CF9A473D7B61660152666A7 /* Pods-ScoreBoard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoreBoard.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScoreBoard/Pods-ScoreBoard.release.xcconfig"; sourceTree = "<group>"; };
+		466FB47F1E74F9CD00D7CD41 /* SBFavTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBFavTableCell.swift; sourceTree = "<group>"; };
 		467A03901E73D5070040CE8B /* ScoreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		467A03931E73D5070040CE8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		467A03951E73D5070040CE8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				467A03D01E73E7810040CE8B /* SBTableCell.swift */,
+				466FB47F1E74F9CD00D7CD41 /* SBFavTableCell.swift */,
 			);
 			name = SBTableCells;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				467A03CD1E73DC2A0040CE8B /* SBPlayer.swift in Sources */,
+				466FB4801E74F9CD00D7CD41 /* SBFavTableCell.swift in Sources */,
 				46932C6F1E745E0F0057A288 /* SBFavouriteVC.swift in Sources */,
 				467A03D11E73E7810040CE8B /* SBTableCell.swift in Sources */,
 				46932C6A1E7442760057A288 /* SBDBPersistence.swift in Sources */,

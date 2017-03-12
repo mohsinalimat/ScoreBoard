@@ -53,33 +53,24 @@ class SBFavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: "SBTableCell") as! SBTableCell
+        let favTableCell = tableView.dequeueReusableCell(withIdentifier: "SBTableCell") as! SBFavTableCell
         
         let playerOb = self.filteredList?.object(at: indexPath.row) as! SBPlayer
         
         DispatchQueue.main.async {
-            tableCell.playerImageView?.layer.cornerRadius = (tableCell.playerImageView?.frame.size.width)!/2;
-            tableCell.playerImageView?.layer.masksToBounds = true
+            favTableCell.playerImgView?.layer.cornerRadius = (favTableCell.playerImgView?.frame.size.width)!/2;
+            favTableCell.playerImgView?.layer.masksToBounds = true
         }
         
-        print("WHATTTTTTTTTTTTT : \((playerOb.name)!)")
-        
-        tableCell.playerNameLabel?.text = playerOb.name as String?
-        
-        var image = UIImage(named: "favourite_default.png")
-        if ((playerOb.favourite!)) {
-            image = UIImage(named: "favourite_set.png")
-        }
+        favTableCell.playerName?.text = playerOb.name as String?
         
         if (playerOb.image != nil) {
             
             let imageURL = NSURL(string : playerOb.image as! String)
-            tableCell.playerImageView?.sd_setImage(with: imageURL as URL!, placeholderImage: UIImage(named: "user_default.png"))
+            favTableCell.playerImgView?.sd_setImage(with: imageURL as URL!, placeholderImage: UIImage(named: "user_default.png"))
         }
         
-        tableCell.favouriteButton?.setImage(image, for: .normal)
-        
-        return tableCell
+        return favTableCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
