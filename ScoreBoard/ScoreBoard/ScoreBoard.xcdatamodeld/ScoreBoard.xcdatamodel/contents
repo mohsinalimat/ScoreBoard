@@ -4,12 +4,13 @@
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favourite" optional="YES" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="matches" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="playerDesc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="runs" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Favourite" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Favourite" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>

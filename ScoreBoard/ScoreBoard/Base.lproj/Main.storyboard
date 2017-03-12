@@ -198,10 +198,10 @@
             </objects>
             <point key="canvasLocation" x="1652" y="101.19940029985008"/>
         </scene>
-        <!--FavouriteVC-->
+        <!--Favourites-->
         <scene sceneID="Lei-W6-IWz">
             <objects>
-                <viewController storyboardIdentifier="SBFavouriteVC" id="NW3-sf-GmB" customClass="SBFavouriteVC" customModule="ScoreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SBFavouriteVC" title="Favourites" id="NW3-sf-GmB" customClass="SBFavouriteVC" customModule="ScoreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SuE-nj-XDk"/>
                         <viewControllerLayoutGuide type="bottom" id="VKj-MG-ZfS"/>

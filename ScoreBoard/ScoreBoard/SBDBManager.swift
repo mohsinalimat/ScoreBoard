@@ -23,8 +23,9 @@ class SBDBManager: NSObject {
         favouriteObj.setValue(player.id as String?, forKey: "id")
         favouriteObj.setValue(player.name as String?, forKey: "name")
         favouriteObj.setValue(player.country, forKey: "country")
-        favouriteObj.setValue(player.description, forKey: "playerDesc")
+        favouriteObj.setValue(player.playerdescription, forKey: "playerDesc")
         favouriteObj.setValue(player.matches_played, forKey: "matches")
+        favouriteObj.setValue(player.image, forKey: "imageUrl")
         favouriteObj.setValue(player.total_score, forKey: "runs")
         let boolObj = NSNumber(value: player.favourite!)
         favouriteObj.setValue(boolObj, forKey: "favourite")
@@ -63,6 +64,7 @@ class SBDBManager: NSObject {
                 let boolObj = player.value(forKey: "favourite") as! NSNumber?
                 playerOb.favourite = boolObj?.boolValue
                 
+                playerOb.image = player.value(forKey: "imageUrl") as! NSString?
             }
             
         } catch let error as NSError {
@@ -122,6 +124,8 @@ class SBDBManager: NSObject {
                 player.total_score = playerOb.value(forKey: "runs") as! NSString?
                 let boolObj = playerOb.value(forKey: "favourite") as! NSNumber?
                 player.favourite = boolObj?.boolValue
+                
+                player.image = playerOb.value(forKey: "imageUrl") as! NSString?
                 
                 print("NAME_FETCH \((player.name)!)")
                 

@@ -23,5 +23,6 @@ extension Favourite {
     @NSManaged public var playerDesc: String?
     @NSManaged public var runs: String?
     @NSManaged public var name: String?
+    @NSManaged public var imageUrl: String?
 
 }
